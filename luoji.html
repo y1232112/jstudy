@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>逻辑运算符</title>
+	<script type="text/javascript">
+		/*
+		*-!非运算,对布尔值取反操作
+		*   -对非布尔值取反,先将值变为bool值
+		*     取两次反进行隐式转换
+		*-&&与  对符号两侧值运算,返回结果
+		*    全真则真,有假则假
+		*     js中的与为短路与,若第一个值为false,则不检查第二个值
+		*-||或
+		*   全假则假,有真则真
+		*     js中的或属于短路或
+		*      若第一个值为true则不会检查第二个值
+		*
+		*-与或非 的非布尔值情况
+		*      -先转换成布尔值,再计算,最后返回原值
+		*/
+	  //两个值都为true返回后边的,两个值中有false则返回靠前的
+		
+		var result=1&&2;
+		console.log(result);//2
+		result=0&&NaN;
+		console.log(result);//0	
+		
+		result=1||2;
+		console.log(result);//1
+		//或:如果第一个值为false则直接返回第一个值
+		//若第一个值为true则直接返回第二个值
+	</script>
+</head>
+
+<body>
+</body>
+</html>

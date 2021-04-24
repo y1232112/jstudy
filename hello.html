@@ -13,10 +13,15 @@
 	   alert("alert方法输出，向窗口输出一个内容");
 		document.write("document.write向页面（body）输出一个内容")
 		console.log("console向控制台输出一个内容")
+		/*可以将js代码写道script标签中*/
 	</script>
+	<script type="text/ecmascript" src="waibu.js"></script>
 </head>
 
 <body>
-
+<!--	虽然js代码可以写到某些属性中,但是结构与行为耦合,不方便维护,不推荐使用-->
+     <button onClick="alert('讨厌，你点我干嘛~~')">按钮</button>
+	<a href="javascript:alert('让你点就点')">点我</a>
+	<a href="javascript:；">也点我</a>
 </body>
 </html>

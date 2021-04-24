@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>运算符</title>
+	<script type="text/javascript">
+		/*运算符也叫操作符
+		*运算符对一个或多个值进行计算,并获取运算结果
+		*typeof也是一种运算符,获得一个值的类型,以string形式返回
+		*  任何值和NaN运算都为NaN
+		*/
+		var a=123;
+		var result=typeof a;
+		console.log(result);
+	    
+		console.log(a+1);
+		
+		result=1+2+"3";//33
+		result="1"+2+3;//123
+		result=100-true;//99
+		result=100-'1';//99
+		result=100*undefined;//NaN
+		//任何值做 -,*,/都转成number,通过这特性 -0,*1,/1 做隐式类型转换
+		
+		//%取模(取余数)
+	</script>
+</head>
+
+<body>
+</body>
+</html>

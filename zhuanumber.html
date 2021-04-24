@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>转换为number</title>
+	<script type="text/javascript">
+		/*将其他数据类型转换为number
+		*-转换方式一:
+		*    -使用Number()函数
+		*       -字符串转number
+		*             1.纯数字的转换为数字
+		*             2.若有非法数字则转换为NaN
+		*             2.如果字符串为"","   "转换为0
+		*       -布尔转number
+		*             1.true转为1
+		*             2.false转为0
+		*        -null转number
+		*             0
+		*         -undefined -->number=NaN
+		*-转换方式二:
+		*      -这种方式专门对付字符串
+		*      -parseInt()函数可以将字符串中有效数字取出并转换为number
+		*      -parseFloat()
+		*         对于非string值会先转换为string,在转换为number
+		*/
+		var a="123";
+		console.log(typeof a);
+	    console.log(a);
+		
+		a=Number(a);
+		console.log(typeof a);
+	    console.log(a);
+		
+		var a="";
+		a=Number(a);
+		console.log(typeof a);
+	    console.log(a);
+		var a="  ";
+		a=Number(a);
+		console.log(typeof a);
+	    console.log(a);
+		var a=null;
+		a=Number(a);
+		console.log(typeof a);
+	    console.log(a);
+		
+		var a=true;
+		a=Number(a);
+		console.log(typeof a);
+	    console.log(a);
+		var a=false;
+		a=Number(a);
+		console.log(typeof a);
+	    console.log(a);
+		
+		var a=undefined;
+		a=Number(a);
+		console.log(typeof a);
+	    console.log(a);
+		
+		var a="123px";
+		a=parseInt(a);
+		console.log(typeof a);
+	    console.log(a);//返回123
+		
+		var a="123px12354";
+		a=parseInt(a);
+		console.log(typeof a);
+	    console.log(a);//返回123
+		
+		var a="a123px12354";
+		a=parseInt(a);
+		console.log(typeof a);
+	    console.log(a);//返回NaN
+	</script>
+</head>
+
+<body>
+</body>
+</html>
