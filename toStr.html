@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js的tostring方法</title>
+	<script type="text/javascript">
+		function Person(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		var p1=new Person("孙悟空",500);
+		console.log(p1);
+		console.log(p1.toString());//[object Object]
+		
+		Person.prototype.toString=function(){
+			return "Perspn[name="+this.name+",age="+this.age+"]";
+		}
+		console.log(p1.toString());//Perspn[name=孙悟空,age=500]
+	</script>
+</head>
+
+<body>
+</body>
+</html>

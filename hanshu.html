@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js函数</title>
+	<script type="text/javascript">
+		/*
+		*函数也是一个对象 
+		*
+		*除了基本数据类型都是对象
+		*
+		*/
+		//很少用下面的方式创建函数
+		var fun=new Function();
+		
+		console.log(typeof fun);//function
+		
+		var fun1=new Function(alert("调用函数！"));
+		fun();
+	
+		//通常使用函数的声明来创建函数  function 函数名（形参1，形参2，...）{语句}
+		
+		function Fun2(){console.log("hello")}
+		Fun2();
+		
+		//使用函数表达式创建函数
+		var fun3=function(){console.log('来于匿名函数')}
+		fun3();
+		
+		//立即执行函数，智慧调用一次
+		(function(){alert('我是立即执行函数！')})()
+		
+		//枚举对象的属性
+		var obj={name:"猪八戒",age:200}
+		for(var x in obj){
+			console.log(x);//name
+		}                  //age
+	</script>
+</head>
+
+<body>
+</body>
+</html>

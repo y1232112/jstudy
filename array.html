@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js数组</title>
+	<script type="text/javascript">
+		/*
+		*数组，Array
+		*
+		*
+		*-索引
+		*   -从0开始的整数
+		*
+		*/
+		
+		var arr=new Array();
+		console.log(typeof arr);//object
+		
+		arr[0]=10;
+		console.log(arr);//
+		arr[1]=20;
+		console.log(arr);//
+		console.log(arr[1]);//20
+		console.log(arr[3]);//undefined
+		console.log(arr.length);//2
+		arr[10]=20;
+		console.log(arr.length);//11 length得到的长度为最大索引值加1
+		console.log(arr);//尽量不要创建非连续的数组
+		/*
+		*当修改的长度大于原长度则多出来的空出来，小于则去掉
+		*/
+		
+		//使用字面量创建数组
+		var arr1=[];
+		var arr2=[1,2,3,4];
+		var arr3=new Array(1,2,3,4);
+		
+		arr2.push("唐僧");
+		console.log(arr2);//[1, 2, 3, 4, "唐僧"]  向末尾加,并返回新的长度
+		
+		var len=arr2.pop();//删除并返回数组的最后一个元素
+		console.log(len);//唐僧
+		console.log(arr2);//[1, 2, 3, 4]
+		
+		var v=arr2.shift();
+		console.log(arr2);//[2, 3, 4]
+		console.log(v);//1
+		
+		var a1=arr2.join();
+		console.log(a1);//2,3,4
+		var a2=arr2.toString();
+		console.log(a2);//2,3,4
+		var a3=arr2.reverse();
+		console.log(a3);//[4, 3, 2]
+		var a4=arr2.slice(2);
+		console.log(a4);//[2]
+		
+		//foreach主要是ie8以上的浏览器支持
+		/*
+		concat() 连接两个或更多的数组，并返回结果。 
+join() 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。 
+pop() 删除并返回数组的最后一个元素 
+push() 向数组的末尾添加一个或更多元素，并返回新的长度。 
+reverse() 颠倒数组中元素的顺序。 
+shift() 删除并返回数组的第一个元素 
+slice() 从某个已有的数组返回选定的元素 
+sort() 对数组的元素进行排序 
+splice() 删除元素，并向数组添加新元素。 
+toSource() 返回该对象的源代码。 
+toString() 把数组转换为字符串，并返回结果。 
+toLocaleString() 把数组转换为本地数组，并返回结果。 
+unshift() 向数组的开头添加一个或更多元素，并返回新的长度。 
+valueOf() 返回数组对象的原始值 
+*/
+	</script>
+</head>
+
+<body>
+</body>
+</html>
