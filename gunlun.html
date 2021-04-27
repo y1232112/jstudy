@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>滚轮事件</title>
+	<style type="text/css">
+		body{height: 2000px;}
+		#box1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var box1=document.getElementById("box1");
+			//onmousewheel火狐不支持
+			box1.onmousewheel=function(event){
+				event=event||window.Event;
+				
+				if(event.wheelDelta>0||event.detail<0){
+				         box1.style.height=box1.clientHeight-10+"px";
+			     }else{
+				         box1.style.height=box1.clientHeight+10+"px";
+			   }
+				//使用addEventListener方法绑定的函数 不能用return false;取消浏览器默认行为
+				//取消浏览器默认 使box滚动时 浏览器窗口不滚动
+				//ie8不支持event.preventDefault();
+				event.preventDefault && event.preventDefault();
+				// 使用 return false
+				return false;
+			}
+			
+			bind(box1,"DOMMouseScroll",box1.onmousewheel);
+			function bind(obj,eventStr,calback){
+			  if(obj.addEventListener){
+				obj.addEventListener(eventStr,calback,false);
+			  }else{
+				obj.attachEvent("on"+eventStr,function(){
+					calback.call(obj);
+			 	})
+			  }
+				
+				
+		    }
+		}
+	</script>
+</head>
+
+<body>
+	<div id="box1"></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>事件绑定</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var btn1=document.getElementById("btn01");
+			/*
+			* addEventListener可以同时为一个元素同一事件绑定多个函数 按照绑定数据执行
+			*不支持ie8及以下浏览器
+			*-参数
+			* 1.事件的字符串 不要 on
+			*  2.回调函数 当事件触发时参数会被调用
+			*  3.是否会在捕获阶段触发事件 需要一个布尔值 一般都传false
+			*/
+//			btn1.addEventListener("click",function(){
+//				alert('1');
+//			},false);
+//			btn1.addEventListener("click",function(){
+//				alert('2');
+//			},false);
+//			
+			/*
+			*attachEvent 火狐 谷歌都不支持
+			*
+			*/
+//			btn1.attachEvent("onclick",function(){
+//				alert('事件');
+//			});
+//			btn1.attachEvent("onclick",function(){
+//				alert('事件2');
+//			});
+			
+			//this  ie为window  其他为button
+			bind(btn1,"click",function(){
+				alert(this);
+			})
+			//兼容
+			function bind(obj,eventStr,callback){
+				if(obj.addEventListener){
+					obj.addEventListener(eventStr,callback,false);
+				}else{
+					//ie8下面一句会有window调用
+//					obj.attachEvent("on"+eventStr,callback);
+					
+					//如下写 统一this
+					obj.attachEvent("on"+eventStr,function(){
+						callback.call(obj);
+					});
+				}
+				
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<button id="btn01">按钮1</button>
+</body>
+</html>
