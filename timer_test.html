@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片切换练习</title>
+	<style  type="text/css">
+		#box{
+			width: 600px;
+			height: 300px;
+			margin: 50px auto;
+			text-align: center;
+		}
+		#btn01,#btn02{
+			margin: 0 auto;
+			background-color: mediumblue;
+			color: white;
+		}
+		#img1{
+			margin: 0 auto;
+			display: block;
+		}
+	</style>
+	<script type="text/javascript">
+	    window.onload=function(){
+			//自动切换图片
+			var imgArr=["image/05.jpg","image/06.jpg","image/07.jpg","image/08.jpg"];
+			var index1=0;
+		    var btn1=document.getElementById("btn01");
+			var btn2=document.getElementById("btn02");
+			var img1=document.getElementById("img1");
+			
+			
+//			setInterval(function(){
+//				index1++;
+//				if(index1>=imgArr.length){
+//					index1=0;
+//				}
+//				img1.src=imgArr[index1]
+//			},1000);
+			
+			var timer;
+			btn1.onclick=function(){
+				//每点击一次多开启一个定时器
+				clearInterval(timer);
+				timer=setInterval(function(){
+				   index1++;
+				   index1=index1%imgArr.length;
+				   img1.src=imgArr[index1]
+			    },1000);
+			}
+			btn2.onclick=function(){
+				//clearInterval可以接受任意参数 如果无效则什么都不做
+				   clearInterval(timer);
+			}
+			
+		}
+	</script>
+</head>
+
+<body>
+	<div id="box">
+		<img id="img1" src="image/05.jpg"/>
+	     <button id="btn01">开始</button>
+	     <button id="btn02">停止</button>
+	</div>
+	
+</body>
+</html>

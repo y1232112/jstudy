@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>定时器</title>
+	<script type="text/javascript">
+		/**
+		*
+		*如果希望程序每间隔一段时间执行一次可以使用定时调用
+		*
+		*
+		*
+		*
+		*/
+		window.onload=function(){
+			var count=document.getElementById("count");
+			/*
+			* 参数 
+			*    1.函数
+			*     2.时间
+			* 返回值为number类型的唯一标识
+			*clearInterval()定时器的标识作为参数
+			*/
+			var num=1;
+			var timer=setInterval(function(){
+				count.innerHTML=num++;
+				//关闭定时器
+			    if(num==10){
+				    clearInterval(timer);
+			     }
+			},1000);
+			
+			
+			
+		}
+
+	</script>
+</head>
+
+<body>
+	<div id="count">1</div>
+</body>
+</html>

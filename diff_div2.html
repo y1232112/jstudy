@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>根据上下左右建移动div</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box1{
+			width: 100px;
+			height: 100px;
+			background: #ff0000;
+			left: 0;
+			top: 0;
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var speeed=10;
+			var dir=0;
+			
+			setInterval(function(){
+					switch(dir){
+					case 37:
+						console.log("向左~");
+						box1.style.left=box1.offsetLeft-speed+"px";
+						console.clear();
+						console.log("left:"+box1.style.left,"top:"+box1.style.top);
+						break;
+					case 38:
+						console.log("向上~");
+						box1.style.top=box1.offsetTop-speed+"px";
+						console.clear();
+						console.log("left:"+box1.style.left,"top:"+box1.style.top);
+						break;
+					case 39:
+						console.log("向右~");
+						box1.style.left=box1.offsetLeft+speed+"px";
+						console.clear();
+						console.log("left:"+box1.style.left,"top:"+box1.style.top);
+						break;
+					case 40:
+						console.log("向下~");
+						box1.style.top=box1.offsetTop+speed+"px";
+						console.clear();
+						console.log("left:"+box1.style.left,"top:"+box1.style.top);
+						break;
+					}
+				  },30);
+			
+			document.onkeydown=function(event){
+				event=event||window.event;
+				var box1=document.getElementById("box1");
+			    
+				 speed=10;//控制移动速度
+				dir=event.keyCode;//创建表示方向的变量				
+				
+			}
+			
+			document.onkeyup=function(){
+					dir=0;
+					
+			}
+		}
+
+		
+	</script>
+</head>
+
+<body>
+	<div id="box1"></div>
+</body>
+</html>
